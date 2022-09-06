@@ -19,6 +19,11 @@ class UsersController < ApplicationController
 
   end
 
+  def login
+    user = User.find_by(email: params[:email])
+    redirect_to user_path(user)
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password)

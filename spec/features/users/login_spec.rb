@@ -23,6 +23,6 @@ RSpec.describe 'Logging In' do
 
     click_on 'Log In' 
 
-    expect(current_path).to eq(user_route(user))
+    expect(current_path).to eq(user_path(user))
   end
 end
