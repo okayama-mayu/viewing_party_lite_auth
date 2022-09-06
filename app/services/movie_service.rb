@@ -2,7 +2,6 @@ class MovieService
   def self.details(movie_id)
     response = conn.get("/3/movie/#{movie_id}")
     status_check(response)
-    binding.pry 
   end
 
   def self.top_rated
