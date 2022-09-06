@@ -44,9 +44,5 @@ RSpec.describe 'Welcome Index' do
 
       expect(current_path).to eq '/login'
     end
-    
-    # where I can input my unique email and password.
-    # When I enter my unique email and correct password 
-    # I'm taken to my dashboard page
   end
 end
