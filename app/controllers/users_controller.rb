@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @movies = MovieFacade.movies(movie_ids)
   end
 
+  def login_form
+    
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password)
