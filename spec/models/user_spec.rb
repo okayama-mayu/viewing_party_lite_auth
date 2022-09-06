@@ -6,6 +6,8 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of(:email) }
     it { should allow_value('sally@gmail.com').for(:email) }
     it { should_not allow_value('1234').for(:email) }
+
+    it { should have_secure_password }
   end
 
   describe 'relationships' do

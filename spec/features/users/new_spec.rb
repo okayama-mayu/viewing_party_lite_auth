@@ -20,4 +20,11 @@ RSpec.describe 'Register User Page', type: :feature do
       expect(current_path).to eq user_path(sally.id)
     end
   end
+
+  # As a visitor 
+  # When I visit `/register`
+  # I see a form to fill in my name, email, password, and password confirmation.
+  # When I fill in that form with my name, email, and matching passwords,
+  # I'm taken to my dashboard page `/users/:id`
+  
 end
