@@ -40,7 +40,6 @@ RSpec.describe 'Welcome Index' do
     # When I click on "Log In"
     # I'm taken to a Log In page ('/login') 
     it 'has a link to Log In' do 
-      save_and_open_page 
       click_link 'Log In' 
 
       expect(current_path).to eq '/login'
