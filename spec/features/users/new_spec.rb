@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Register User Page', type: :feature do
   describe 'When a user visits the /register path' do
-    it 'shows a form to register with a name, unique email, and a register button' do
+    it 'shows a form to register with a name, unique email, password and password confirmation, and a register button' do
       visit '/register'
+      save_and_open_page
 
       fill_in 'Name', with: ''
       fill_in 'Email', with: '1234'
@@ -14,6 +15,8 @@ RSpec.describe 'Register User Page', type: :feature do
 
       fill_in 'Name', with: 'Sally Smith'
       fill_in 'Email', with: 'sallysmith@gmail.com'
+      fill_in 'Password', with: '123abc' 
+      fill_in 'Password Confirmation', with: '123abc'
       click_button 'Register User'
 
       sally = User.all.last

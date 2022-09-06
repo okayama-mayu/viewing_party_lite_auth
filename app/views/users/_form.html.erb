@@ -3,6 +3,10 @@
   <%= f.text_field :name %>
   <%= f.label :email %>
   <%= f.text_field :email %>
+  <% = f.label :password %>
+  <%= f.text_field :password %>
+  <% = f.label :password_conf, 'Password Confirmation' %>
+  <%= f.text_field :password_conf %>
 
   <%= f.submit button_text %>
 <% end %>
