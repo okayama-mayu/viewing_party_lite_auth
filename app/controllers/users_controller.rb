@@ -20,14 +20,8 @@ class UsersController < ApplicationController
   end
 
   def login_user
-    user = User.find_by(email: params[:email])
-    if user.authenticate(params[:password])
-      session[:user_id] = user.id 
-      redirect_to user_path(user)
-    else 
-      flash[:error] = 'Sorry, your credentials are bad.' 
-      render :login_form
-    end
+    @user = User.find_by(email: params[:email])
+    check_password 
   end
 
   private
@@ -45,6 +39,16 @@ class UsersController < ApplicationController
       else
         flash[:alert] = "Error: #{error_message(@new_user.errors)}"
         redirect_to '/register'
+      end
+    end
+
+    def check_password
+      if @user.authenticate(params[:password])
+        session[:user_id] = @user.id 
+        redirect_to user_path(@user)
+      else 
+        flash[:error] = 'Sorry, your credentials are bad.' 
+        render :login_form
       end
     end
 end
