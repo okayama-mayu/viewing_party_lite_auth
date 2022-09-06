@@ -11,6 +11,7 @@ class Movie
               :reviews
 
   def initialize(details_data, reviews_data, credits_data)
+    binding.pry 
     @id = details_data[:id]
     @poster = details_data[:poster_path]
     @title = details_data[:original_title]
