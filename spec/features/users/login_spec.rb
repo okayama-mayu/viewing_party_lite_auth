@@ -25,4 +25,24 @@ RSpec.describe 'Logging In' do
 
     expect(current_path).to eq(user_path(user))
   end
+
+  # As a registered user
+  # When I visit the landing page `/`
+  # And click on the link to go to my dashboard
+  # And fail to fill in my correct credentials 
+  # I'm taken back to the Log In page
+  # And I can see a flash message telling me that I entered incorrect credentials. 
+  it 'fails to log in with bad credentials' do
+    user = User.create!(name: 'Carlos Stich', email: 'c@gmail.com', password: 'abcdefg')
+
+    visit login_path 
+
+    fill_in :email, with: user.email 
+    fill_in :password, with: 'bad password' 
+
+    click_on 'Log In' 
+
+    expect(current_path).to eq (login_path)
+    expect(page).to have_content 'Sorry, your credentials are bad.' 
+  end
 end
