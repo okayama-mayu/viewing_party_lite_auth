@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Register User Page', type: :feature do
+  # As a visitor 
+  # When I visit `/register`
+  # I see a form to fill in my name, email, password, and password confirmation.
+  # When I fill in that form with my name, email, and matching passwords,
+  # I'm taken to my dashboard page `/users/:id`
   describe 'When a user visits the /register path' do
     it 'shows a form to register with a name, unique email, password and password confirmation, and a register button' do
       visit '/register'
-      save_and_open_page
 
       fill_in 'Name', with: ''
       fill_in 'Email', with: '1234'
@@ -22,12 +26,5 @@ RSpec.describe 'Register User Page', type: :feature do
       sally = User.all.last
       expect(current_path).to eq user_path(sally.id)
     end
-  end
-
-  # As a visitor 
-  # When I visit `/register`
-  # I see a form to fill in my name, email, password, and password confirmation.
-  # When I fill in that form with my name, email, and matching passwords,
-  # I'm taken to my dashboard page `/users/:id`
-  
+  end  
 end
