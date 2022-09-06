@@ -35,37 +35,46 @@ RSpec.describe 'Register User Page', type: :feature do
     it 'takes user back to the registration page if they fail to fill in name, unique email, or matching passwords' do 
       visit '/register'
 
-      # fill_in 'Name', with: ''
-      # fill_in 'Email', with: 'sallysmith@gmail.com'
-      # fill_in 'Password', with: '123abc' 
-      # fill_in 'Password Confirmation', with: '123abc'
-      # click_button 'Register User'
+      fill_in 'Name', with: ''
+      fill_in 'Email', with: 'sallysmith@gmail.com'
+      fill_in 'Password', with: '123abc' 
+      fill_in 'Password Confirmation', with: '123abc'
+      click_button 'Register User'
 
-      # expect(current_path).to eq '/register'
-      # expect(page).to have_content "Error: Name can't be blank"
+      expect(current_path).to eq '/register'
+      expect(page).to have_content "Error: Name can't be blank"
 
-      # fill_in 'Name', with: 'Sally Smith'
-      # fill_in 'Email', with: ''
-      # fill_in 'Password', with: '123abc' 
-      # fill_in 'Password Confirmation', with: '123abc'
-      # click_button 'Register User'
+      fill_in 'Name', with: 'Sally Smith'
+      fill_in 'Email', with: ''
+      fill_in 'Password', with: '123abc' 
+      fill_in 'Password Confirmation', with: '123abc'
+      click_button 'Register User'
 
-      # expect(current_path).to eq '/register'
-      # expect(page).to have_content "Error: Email is invalid"
+      expect(current_path).to eq '/register'
+      expect(page).to have_content "Error: Email is invalid"
 
-      # fill_in 'Name', with: 'Sally Smith'
-      # fill_in 'Email', with: 'sallysmith@gmail.com'
-      # fill_in 'Password', with: '' 
-      # fill_in 'Password Confirmation', with: ''
-      # click_button 'Register User'
+      fill_in 'Name', with: 'Sally Smith'
+      fill_in 'Email', with: 'sallysmith@gmail.com'
+      fill_in 'Password', with: '' 
+      fill_in 'Password Confirmation', with: ''
+      click_button 'Register User'
 
-      # expect(current_path).to eq '/register'
-      # expect(page).to have_content "Error: Password can't be blank"
+      expect(current_path).to eq '/register'
+      expect(page).to have_content "Error: Password can't be blank"
 
       fill_in 'Name', with: 'Sally Smith'
       fill_in 'Email', with: 'sallysmith@gmail.com'
       fill_in 'Password', with: 'abc' 
       fill_in 'Password Confirmation', with: '123'
+      click_button 'Register User'
+
+      expect(current_path).to eq '/register'
+      expect(page).to have_content "Error: Passwords do not match."
+
+      fill_in 'Name', with: 'Sally Smith'
+      fill_in 'Email', with: 'sallysmith@gmail.com'
+      fill_in 'Password', with: 'abc' 
+      fill_in 'Password Confirmation', with: ''
       click_button 'Register User'
 
       expect(current_path).to eq '/register'
