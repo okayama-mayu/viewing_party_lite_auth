@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   def new; end
 
   def create
-    @user = User.new(user_params)
+    user = user_params 
+    user[:email] = user[:email].downcase 
+    @new_user = User.new(user_params)
     input_check 
   end
 
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def login_form
-    
+
   end
 
   private
@@ -26,11 +28,11 @@ class UsersController < ApplicationController
       if params[:user][:password] != params[:user][:password_conf]
         flash[:alert] = "Error: Passwords do not match."
         redirect_to '/register'
-      elsif @user.save
-        redirect_to "/users/#{@user.id}"
-        flash[:success] = "Welcome, #{@user.name}!"
+      elsif @new_user.save
+        redirect_to "/users/#{@new_user.id}"
+        flash[:success] = "Welcome, #{@new_user.name}!"
       else
-        flash[:alert] = "Error: #{error_message(@user.errors)}"
+        flash[:alert] = "Error: #{error_message(@new_user.errors)}"
         redirect_to '/register'
       end
     end
