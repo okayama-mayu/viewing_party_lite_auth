@@ -33,5 +33,21 @@ RSpec.describe 'Welcome Index' do
 
       expect(current_path).to eq(root_path)
     end
+
+    # As a registered user
+    # When I visit the landing page `/`
+    # I see a link for "Log In"
+    # When I click on "Log In"
+    # I'm taken to a Log In page ('/login') 
+    it 'has a link to Log In' do 
+      save_and_open_page 
+      click_link 'Log In' 
+
+      expect(current_path).to eq '/login'
+    end
+    
+    # where I can input my unique email and password.
+    # When I enter my unique email and correct password 
+    # I'm taken to my dashboard page
   end
 end
