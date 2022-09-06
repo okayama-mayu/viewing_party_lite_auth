@@ -23,26 +23,31 @@
           1,
           1,
           1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          1,
+          1,
           0,
           0,
           0,
           null,
+          0,
+          0,
           null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
           null,
           null
         ]
@@ -86,69 +91,75 @@
       },
       "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/models/viewing_party_user.rb": {
         "lines": [
-          1,
-          1,
-          1,
+          0,
+          0,
+          0,
           null,
-          1,
-          null
-        ]
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/models/viewing_party.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
+          0,
           0,
           null,
-          null,
-          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0,
           null,
-          null
-        ]
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/facades/movie_facade.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
           0,
-          null,
-          null,
-          1,
           0,
           0,
           0,
           null,
-          null,
-          null,
-          1,
           0,
           0,
           0,
           null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           null,
-          null
-        ]
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       },
       "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/poros/movie.rb": {
         "lines": [
@@ -322,6 +333,6 @@
         }
       }
     },
-    "timestamp": 1662493229
+    "timestamp": 1662493734
   }
 }

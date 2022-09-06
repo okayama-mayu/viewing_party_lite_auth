@@ -69,7 +69,7 @@ RSpec.describe 'Register User Page', type: :feature do
       click_button 'Register User'
 
       expect(current_path).to eq '/register'
-      expect(page).to have_content "Error: Password can't be blank"
+      expect(page).to have_content "Error: Passwords do not match."
     end
   end  
 end

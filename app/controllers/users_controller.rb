@@ -3,15 +3,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    check_passwords 
-    if user.save
-      redirect_to "/users/#{user.id}"
-      flash[:success] = "Welcome, #{user.name}!"
-    else
-      flash[:alert] = "Error: #{error_message(user.errors)}"
-      binding.pry 
-      redirect_to '/register'
-    end
+    input_check 
   end
 
   def show
@@ -26,9 +18,16 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password)
     end
 
-    def check_passwords
-      if params[:password] != params[:password_conf]
-        
+    def input_check
+      if params[:user][:password] != params[:user][:password_conf]
+        flash[:alert] = "Error: Passwords do not match."
+        redirect_to '/register'
+      elsif user.save
+        redirect_to "/users/#{user.id}"
+        flash[:success] = "Welcome, #{user.name}!"
+      else
+        flash[:alert] = "Error: #{error_message(user.errors)}"
+        redirect_to '/register'
       end
     end
 end
