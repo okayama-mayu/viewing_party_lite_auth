@@ -61,6 +61,43 @@
           null
         ]
       },
+      "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/controllers/users_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/models/viewing_party_user.rb": {
         "lines": [
           0,
@@ -252,45 +289,6 @@
         "branches": {
         }
       },
-      "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/controllers/users_controller.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/services/movie_service.rb": {
         "lines": [
           0,
@@ -333,6 +331,6 @@
         }
       }
     },
-    "timestamp": 1662494338
+    "timestamp": 1662494584
   }
 }
