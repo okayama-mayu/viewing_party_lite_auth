@@ -34,6 +34,7 @@ class UsersController < ApplicationController
         flash[:alert] = "Error: Passwords do not match."
         redirect_to '/register'
       elsif @new_user.save
+        session[:user_id] = @new_user.id 
         redirect_to "/users/#{@new_user.id}"
         flash[:success] = "Welcome, #{@new_user.name}!"
       else
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def check_password
-      if @user.authenticate(params[:password])
+      if @user&.authenticate(params[:password])
         session[:user_id] = @user.id 
         redirect_to user_path(@user)
       else 
