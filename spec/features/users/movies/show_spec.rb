@@ -32,8 +32,7 @@ RSpec.describe 'Movie Details' do
       expect(current_path).to eq("/users/#{@user1.id}/discover")
     end
 
-    it 'the following information about the movie: Movie Title, Vote Average of the movie, Runtime in hours and minutes, genre(s), Summary, first 10 cast members, count of total reviews, and each reviews author and information',
-       :vcr do
+    it 'the following information about the movie: Movie Title, Vote Average of the movie, Runtime in hours and minutes, genre(s), Summary, first 10 cast members, count of total reviews, and each reviews author and information', :vcr do
       @movie = MovieFacade.movie_info(244_786)
 
       visit "/users/#{@user1.id}/movies/#{@movie.id}"
@@ -98,6 +97,13 @@ RSpec.describe 'Movie Details' do
   # And click the button to create a viewing party
   # I'm redirected to the movies show page, and a message appears to let me know I must be logged in or registered to create a movie party. 
   it 'requires the use to be logged in or registered to create a movie party' do 
-    
+    @movie = MovieFacade.movie_info(244_786)
+
+    visit "/users/#{@user1.id}/movies/#{@movie.id}"
+
+    click_button 'Create A Viewing Party'
+
+    expect(current_path).to eq "/users/#{@user1.id}/movies/#{@movie.id}"
+    expect(page).to have_content "You must be logged in or registered to create a movie party."
   end
 end
