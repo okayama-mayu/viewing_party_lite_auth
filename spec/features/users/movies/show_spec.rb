@@ -11,6 +11,8 @@ RSpec.describe 'Movie Details' do
 
   describe 'When I visit a movies detail page I should see' do
     it 'a button to create a viewing party', :vcr do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
       @movie = MovieFacade.movie_info(244_786)
 
       visit "/users/#{@user1.id}/movies/#{@movie.id}"
@@ -96,7 +98,7 @@ RSpec.describe 'Movie Details' do
   # If I go to a movies show page 
   # And click the button to create a viewing party
   # I'm redirected to the movies show page, and a message appears to let me know I must be logged in or registered to create a movie party. 
-  it 'requires the use to be logged in or registered to create a movie party' do 
+  it 'requires the use to be logged in or registered to create a movie party', :vcr do 
     @movie = MovieFacade.movie_info(244_786)
 
     visit "/users/#{@user1.id}/movies/#{@movie.id}"

@@ -1,4 +1,6 @@
 class ViewingPartiesController < ApplicationController
+  before_action :require_login, only: [:new]
+  
   def new
     @user = User.find(params[:user_id])
     @users = User.everyone_except(params[:user_id])
@@ -26,4 +28,12 @@ class ViewingPartiesController < ApplicationController
       redirect_to "/users/#{params[:user_id]}/movies/#{params[:movie_id]}/viewing-party/new"
     end
   end
+
+  private 
+    def require_login 
+      unless current_user 
+        redirect_to "/users/#{params[:user_id]}/movies/#{params[:movie_id]}" 
+        flash[:error] = "You must be logged in or registered to create a movie party."
+      end 
+    end
 end
