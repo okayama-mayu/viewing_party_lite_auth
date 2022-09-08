@@ -92,4 +92,12 @@ RSpec.describe 'Movie Details' do
       end
     end
   end
+
+  # As a visitor
+  # If I go to a movies show page 
+  # And click the button to create a viewing party
+  # I'm redirected to the movies show page, and a message appears to let me know I must be logged in or registered to create a movie party. 
+  it 'requires the use to be logged in or registered to create a movie party' do 
+    
+  end
 end

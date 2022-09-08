@@ -88,6 +88,16 @@ RSpec.describe 'Welcome Index' do
 
       expect(current_path).to eq root_path
       expect(page).to have_content('You must be logged in or registered to access the dashboard.')
-    end
+
+      user1 = users[0]
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
+
+      visit '/'
+
+      visit '/dashboard' 
+
+      expect(current_path).to eq dashboard_path
+    end 
   end
 end
