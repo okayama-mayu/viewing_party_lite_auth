@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/login', to: "users#login_form" 
   post '/login', to: 'users#login_user' 
 
+  delete '/logout', to: 'sessions#destroy'
+
   get '/users/:id/discover', to: 'movies#discover'
   get '/users/:id/movies/:movie_id', to: 'movies#show'
 
