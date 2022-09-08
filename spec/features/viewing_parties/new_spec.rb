@@ -6,6 +6,8 @@ RSpec.describe 'New Viewing Party' do
     @user1 = users[0]
     @user2 = users[1]
     @user3 = users[2]
+    
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
   end
 
   describe 'When I visit the new viewing party page' do
