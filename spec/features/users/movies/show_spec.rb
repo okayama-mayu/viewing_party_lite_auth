@@ -107,5 +107,11 @@ RSpec.describe 'Movie Details' do
 
     expect(current_path).to eq "/users/#{@user1.id}/movies/#{@movie.id}"
     expect(page).to have_content "You must be logged in or registered to create a movie party."
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
+
+    click_button 'Create A Viewing Party'
+    
+    expect(current_path).to eq "/users/#{@user1.id}/movies/#{@movie.id}/new"
   end
 end
