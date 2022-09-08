@@ -75,5 +75,19 @@ RSpec.describe 'Welcome Index' do
       expect(page).to have_link('Log In')
       expect(page).to have_button('Create a New User')
     end
+
+    # As a visitor
+    # When I visit the landing page
+    # And then try to visit '/dashboard'
+    # I remain on the landing page
+    # And I see a message telling me that I must be logged in or registered to access my dashboard
+    it 'requires the user to be logged in or register to visit the dashboard' do 
+      visit '/'
+
+      visit '/dashboard' 
+
+      expect(current_path).to eq root_path
+      expect(page).to have_content('You must be logged in or registered to access the dashboard.')
+    end
   end
 end

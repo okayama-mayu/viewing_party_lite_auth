@@ -236,7 +236,7 @@
           null,
           null,
           1,
-          6,
+          9,
           null,
           null
         ]
@@ -245,7 +245,7 @@
         "lines": [
           1,
           1,
-          8,
+          10,
           null,
           null
         ]
@@ -351,8 +351,27 @@
           null,
           null
         ]
+      },
+      "/Users/mayutakeda/turing/3mod/challenges/viewing_party_lite_auth/app/controllers/dashboard_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1662603015
+    "timestamp": 1662604155
   }
 }
