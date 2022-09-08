@@ -8,6 +8,7 @@ RSpec.describe 'Welcome Index' do
 
   describe 'When a user visits the root path they should be on the landing page' do
     it 'includes title of application and a button to create a new user' do
+      save_and_open_page
       expect(page).to have_content('Viewing Party Lite')
       expect(page).to have_button('Create a New User')
     end
@@ -43,6 +44,28 @@ RSpec.describe 'Welcome Index' do
       click_link 'Log In' 
 
       expect(current_path).to eq '/login'
+    end
+
+    # As a logged in user 
+    # When I visit the landing page
+    # I no longer see a link to Log In or Create an Account
+    # But I see a link to Log Out.
+    # When I click the link to Log Out
+    # I'm taken to the landing page
+    # And I can see that the Log Out link has changed back to a Log In link
+    it 'has a Log Out link but no Log In or Create an Account link' do 
+      user1 = users[0]
+
+      allow_any_isntance_of(ApplicationController).to receive(:current_user).and_return(user1)
+
+      expect(page).to_not have_link('Log In')
+      expect(page).to_not have_button('Create a New User')
+
+      click_link 'Log Out' 
+
+      expect(current_path).to eq root_path
+      expect(page).to have_link('Log In')
+      expect(page).to have_button('Create a New User')
     end
   end
 end
